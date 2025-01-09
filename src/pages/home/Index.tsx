@@ -1,11 +1,11 @@
-import PostList from "../../components/PostList";
+import Carousel from "components/Carousel";
+import PostList from "components/PostList";
 
 export default function Home() {
   return (
     <div>
-      <div className="post__list">
-        <PostList />
-      </div>
+      <Carousel />
+      <PostList />
     </div>
   );
 }

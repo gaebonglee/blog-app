@@ -28,7 +28,7 @@ export default function Router() {
         </Routes>
       </main>
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

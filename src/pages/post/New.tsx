@@ -1,3 +1,3 @@
-export default function PostNew() {
+export default function New() {
   return <h1>Post New Page</h1>;
 }

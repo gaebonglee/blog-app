@@ -43,7 +43,7 @@ export default function Router({ isAuthenticated }: RouterProps) {
         </Routes>
       </main>
 
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }

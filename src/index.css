@@ -43,15 +43,32 @@ header a:hover {
 
 /* footer */
 footer {
+  position: relative;
+  bottom: 0;
+  left: 0;
   background-color: #f2f2f2;
+  gap: 20px;
   min-height: 40px;
   padding: 20px 40px;
   font-size: 14px;
+  display: flex;
   text-align: center;
+  justify-content: space-between;
+}
+
+/* 왼쪽 링크 스타일 */
+.footer__links {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 20px;
+}
+
+
+/* DARK LIGHT MODE BTN */
+.footer__theme {
+  display: flex;
+  align-items: center;
 }
 
 footer a {
@@ -393,10 +410,12 @@ input:checked + .carousel__slide-container .nav label {
 
 /* form */
 .form {
+  min-height: calc(100vh - 50px);
   margin: 0 auto;
   max-width: 680px;
   padding: 20px;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .form input {
@@ -410,7 +429,7 @@ input:checked + .carousel__slide-container .nav label {
 }
 
 .form textarea {
-  min-height: 250px;
+  min-height: 200px;
   padding: 10px 10px;
   font-size: 16px;
   line-height: 1.5;
@@ -602,7 +621,7 @@ input:checked + .carousel__slide-container .nav label {
   padding-top: 4px;
 }
 
-/* dark mode */
+/*  ------- DARK MODE  ------- */
 
 .white {
   transition: all 0.25s linear;

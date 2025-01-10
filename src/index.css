@@ -12,6 +12,9 @@ code {
     monospace;
 }
 
+textarea {
+  resize: none;
+}
 /* header */
 
 header {
@@ -436,7 +439,6 @@ input:checked + .carousel__slide-container .nav label {
   border: 1px solid lightgray;
   width: 96%;
   max-width: 680px;
-  resize: none;
 }
 
 .form .form__block {

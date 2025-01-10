@@ -9,7 +9,7 @@ import Login from "../pages/login/Login";
 import SignUp from "../pages/signUp/SignUp";
 import Header from "./Header";
 import Footer from "./Footer";
-import { useState } from "react";
+
 
 interface RouterProps {
   isAuthenticated: boolean;
@@ -29,8 +29,6 @@ export default function Router({ isAuthenticated }: RouterProps) {
               <Route path="/posts/new" element={<New />} />
               <Route path="/posts/edit/:id" element={<Edit />} />
               <Route path="/profile" element={<ProfilePage />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signUp" element={<SignUp />} />
               <Route path="*" element={<Navigate replace to="/" />} />
             </>
           ) : (

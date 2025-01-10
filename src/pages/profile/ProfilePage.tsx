@@ -5,7 +5,7 @@ export default function ProfilePage() {
   return (
     <div>
       <Profile />
-      <PostList hasNavigation={false} />
+      <PostList hasNavigation={false} defaultTab="my" />
     </div>
   );
 }

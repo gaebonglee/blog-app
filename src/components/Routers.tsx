@@ -11,23 +11,35 @@ import Header from "./Header";
 import Footer from "./Footer";
 import { useState } from "react";
 
-export default function Router() {
-  //firebase auth가 인증되었으면 true로 변경
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+interface RouterProps {
+  isAuthenticated: boolean;
+}
+
+export default function Router({ isAuthenticated }: RouterProps) {
   return (
     <>
       <Header />
       <main>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/posts" element={<PostsPage />} />
-          <Route path="/posts/:id" element={<Detail />} />
-          <Route path="/posts/new" element={<New />} />
-          <Route path="/posts/edit/:id" element={<Edit />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signUp" element={<SignUp />} />
-          <Route path="*" element={<Navigate replace to="/" />} />
+          {isAuthenticated ? (
+            <>
+              <Route path="/" element={<Home />} />
+              <Route path="/posts" element={<PostsPage />} />
+              <Route path="/posts/:id" element={<Detail />} />
+              <Route path="/posts/new" element={<New />} />
+              <Route path="/posts/edit/:id" element={<Edit />} />
+              <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signUp" element={<SignUp />} />
+              <Route path="*" element={<Navigate replace to="/" />} />
+            </>
+          ) : (
+            <>
+              <Route path="/login" element={<Login />} />
+              <Route path="/signUp" element={<SignUp />} />
+              <Route path="*" element={<Login />} />
+            </>
+          )}
         </Routes>
       </main>
 

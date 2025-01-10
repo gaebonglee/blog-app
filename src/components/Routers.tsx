@@ -6,11 +6,14 @@ import New from "../pages/post/New";
 import Edit from "../pages/post/Edit";
 import ProfilePage from "../pages/profile/ProfilePage";
 import Login from "../pages/login/Login";
-import SignUp from "../pages/signin/SignUp";
+import SignUp from "../pages/signUp/SignUp";
 import Header from "./Header";
 import Footer from "./Footer";
+import { useState } from "react";
 
 export default function Router() {
+  //firebase auth가 인증되었으면 true로 변경
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   return (
     <>
       <Header />

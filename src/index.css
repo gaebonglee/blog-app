@@ -26,7 +26,7 @@ header {
 
 header .header__logo {
   color: black;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 18px;
 }
 
@@ -63,7 +63,6 @@ footer {
   justify-content: center;
   gap: 20px;
 }
-
 
 /* DARK LIGHT MODE BTN */
 .footer__theme {

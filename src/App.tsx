@@ -1,22 +1,39 @@
-import Router from "./components/Routers";
-import { app } from "./firebaseApp";
-import { getAuth } from "firebase/auth";
-import { useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { app } from "firebaseApp";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ThemeContext from "context/ThemeContext";
+
+import Routers from "components/Routers";
+import Loader from "components/Loader";
 
 function App() {
+  const context = useContext(ThemeContext);
   const auth = getAuth(app);
-
-  //firebase auth가 인증되었으면 true로 변경해주는 로직 추가
+  // auth를 체크하기 전에 (initialize 전)에는 loader를 띄워주는 용도
+  const [init, setInit] = useState<boolean>(false);
+  // auth의 currentUser가 있으면 authenticated로 변경
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(
     !!auth?.currentUser
   );
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setIsAuthenticated(true);
+      } else {
+        setIsAuthenticated(false);
+      }
+      setInit(true);
+    });
+  }, [auth]);
+
   return (
-    <>
+    <div className={context.theme === "light" ? "white" : "dark"}>
       <ToastContainer />
-      <Router isAuthenticated={isAuthenticated} />
-    </>
+      {init ? <Routers isAuthenticated={isAuthenticated} /> : <Loader />}
+    </div>
   );
 }
 
